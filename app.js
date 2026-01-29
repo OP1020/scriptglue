@@ -11,11 +11,21 @@ if(name === null){
 const nameSpan = document.getElementById("studentName")
 nameSpan.innerText = name;
 
-let luckyInput = prompt("pick a lucky number (0-100)");
-let luckyNumber = parseInt(luckyInput);
+function fixLucky(lucky){
+    if (isNaN(lucky)) {
+        return "You don't have a lucky number";
+
+    } else {
+        return lucky.toString()
+    }
+}
+
+let luckyOutput = fixLucky(luckyNumber);
 
 const luckyNumberSpan = document.getElementById("luckyNumber");
-luckyNumberSpan.innerText = luckyNumber.toString();
+luckyNumberSpan.innerText = luckyOutput;
 
 
-console.log(`Your name is ${name}`);
+const facts = {name, luckyOutput, name, luckyNumberSpan, fixLucky};
+const statusMessageSpan = document.getElementById("statusMessage");
+statusMessageSpan.innerText = facts.toString();
